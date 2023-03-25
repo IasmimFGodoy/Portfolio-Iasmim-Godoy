@@ -1,0 +1,176 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family:'josefin Sans'
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    background-color: variables.$bg-color
+    color: variables.$text-color
+
+    a
+        color: variables.$text-color
+        text-decoration: none
+        transition: .4s
+
+    // i
+    //     color: white
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-between
+    @include mixins.container
+
+    &-brand // .header-brand
+        color: variables.$primary-color
+        font-size: 1.6rem
+    &-navbar
+        ul
+            height: 100%
+            @include mixins.flex-center
+        li
+            margin: 0 1rem
+            text-transform: uppercase
+            font-size: .8rem
+
+            .active
+                color: variables.$secondary-color
+            a
+                &:hover
+                    color: variables.$secondary-color
+    &-social-media 
+        ul
+            @include mixins.flex-center
+            height: 100%
+        
+            li
+                margin: 0 1rem
+
+                a
+                    &:hover
+                        color: variables.$primary-color
+                    i
+                        width: 40%
+
+.portfolio
+    @include mixins.flex-center
+    @include mixins.container
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 0
+
+    &-card //portfolio-card
+        width: 31%
+        height: 400px
+        margin-bottom: 4%
+        @include mixins.flex-center
+        flex-direction: column
+        color: variables.$primary-color
+
+        &-title
+            font-size: 2rem
+            font-weight: 300
+            margin-bottom: 1rem
+            
+        &-btn
+            padding: .6rem 2rem
+            border: 2px solid variables.$primary-color
+            color: variables.$primary-color
+            font-weight: 400
+            text-transform: uppercase
+            letter-spacing: 1px
+            background-color: variables.$primary-color
+            color: variables.$bg-color
+
+            &:hover
+                background-color: variables.$bg-color
+                color: variables.$secondary-color
+.timeline
+    @include mixins.timeline-position
+    &:before
+      content: ''
+      position: absolute
+      left: 50%
+      width: 2px
+      height: 100%
+      background: variables.$secondary-color
+      
+    &-ul
+        margin: 0
+        padding: 0
+
+        &-li
+            list-style: none
+            position: relative
+            width: 50%
+            padding: 20px 40px
+            box-sizing: border-box
+            
+
+            &:nth-child(odd)
+                float: left
+                text-align: right
+                clear: both
+            &:nth-child(even)
+                float: right
+                text-align: left
+                clear: both
+            &-title
+                padding-bottom: 20px
+                color: variables.$secondary-color
+                font-weight: 600
+            &-dscrip
+                margin: 10px 0 0
+                padding-bottom: 5% 
+            &-time
+                color: variables.$light-blue             
+    
+    #card-1
+        @include mixins.bg-img('card1ao4.png')
+    #card-2
+        @include mixins.bg-img('card1ao4.png')
+    #card-3
+        @include mixins.bg-img('card1ao4.png')
+    #card-4
+        @include mixins.bg-img('card1ao4.png')
+
+.container
+    max-width: 1100px
+    margin: 0 auto
+    padding: 0 3rem
+    margin-top: 4rem
+    text-align: center
+
+    &-name
+        color: variables.$secondary-color
+        font-size: 4rem
+        font-weight: 350
+        letter-spacing: 3px
+        margin-bottom: 2rem
+    &-stack
+        color: variables.$light-blue
+        font-weight: 300
+    &-img
+        margin-top: 3rem
+        margin-bottom: 3rem
+        width: 20%
+        height: 20%
+        border-radius: 50%
+    &-description
+        font-size: 1.2rem
+        margin-bottom: 2rem
+
+footer
+    text-align: center
+    padding-bottom: 2rem
+    color: variables.$primary-color
+
+    span
+        font-weight: bold
+        color: variables.$secondary-color
